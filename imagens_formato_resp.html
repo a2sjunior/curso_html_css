@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imagens Responsivas e Diferentes Formatos</title>
+</head>
+<body>
+    <h1>Manipulação de imagens com a tag picture</h1>
+    <h2>Imagens responsivas</h2>
+    <picture>
+        <source media="(min-width: 992px)" srcset="images/imagem-grande.jpg">
+        <source media="(min-width: 768px)" srcset="images/imagem-media.jpg">
+        <img src="images/imagem-pequena.jpg" alt="Uma paisagem responsiva">
+    </picture>
+
+    <h2>Diferentes formatos de imagem</h2>
+    <picture>
+        <source type="image/avif" srcset="images/imagem-avif.avif">
+        <img src="images/imagem-media.jpg" alt="Uma imagem em diferentes formatos">
+    </picture>    
+</body>
+</html>
