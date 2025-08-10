@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fomulario com listas</title>
+</head>
+
+<body>
+    <form action="processamento_lista.php" method="get">
+
+        <label for="curso-select">Escolha seu curso:</label>
+        <select name="curso_matricula" id="curso-select">
+            <option value="cmd_101">Comunicação em Mídias Digitais</option>
+            <option value="jor_202">Jornalismo</option>
+            <option value="pp_303">Publicidade e Propaganda</option>
+        </select>
+
+        <label for="destino">Escolha seu próximo destino:</label>
+        <select name="destino" id="destino" multiple size="4">
+            <option value="" disabled selected>-- Por favor, escolha uma opção --</option>
+            <optgroup label="Brasil">
+                <option value="joao_pessoa">João Pessoa</option>
+                <option value="rio_de_janeiro">Rio de Janeiro</option>
+            </optgroup>
+            <optgroup label="Europa">
+                <option value="lisboa">Lisboa</option>
+                <option value="paris">Paris</option>
+            </optgroup>
+        </select>
+
+    </form>
+
+</body>
+
+</html>
