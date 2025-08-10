@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo de Acordeão (FAQ) Acessível</title>
+    <style>
+        /* Estilos para deixar o exemplo mais claro e bonito */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f0f2f5;
+            color: #1c1e21;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .faq-item h3 {
+            margin: 0;
+        }
+
+        .faq-item button {
+            width: 100%;
+            padding: 15px;
+            font-size: 18px;
+            font-weight: 600;
+            text-align: left;
+            background-color: #e4e6eb;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-item button:hover {
+            background-color: #d8dbdf;
+        }
+
+        /* O conteúdo do painel */
+        .faq-item div[role="region"] {
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-top: none;
+            border-radius: 0 0 5px 5px;
+        }
+
+        /* Adiciona um indicador visual de '+' e '-' */
+        .faq-item button::after {
+            content: '+';
+            font-size: 24px;
+            font-weight: bold;
+            color: #606770;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .faq-item button[aria-expanded="true"]::after {
+            content: '−';
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Perguntas Frequentes (FAQ)</h2>
+
+        <div class="faq-item">
+            <h3>
+                <button aria-expanded="false" aria-controls="painel-faq-1" id="botao-faq-1">
+                    Qual o horário de funcionamento?
+                </button>
+            </h3>
+            <div role="region" id="painel-faq-1" aria-labelledby="botao-faq-1" hidden>
+                <p>
+                    Nosso horário de funcionamento é de segunda a sexta, das 9h às 18h.
+                </p>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="faq-item">
+            <h3>
+                <button aria-expanded="false" aria-controls="painel-faq-2" id="botao-faq-2">
+                    Quais são as formas de pagamento?
+                </button>
+            </h3>
+            <div role="region" id="painel-faq-2" aria-labelledby="botao-faq-2" hidden>
+                <p>
+                    Aceitamos cartões de crédito (Visa, MasterCard), PIX e boleto bancário.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script>
+        // Espera o documento HTML carregar completamente antes de executar o script
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // Seleciona TODOS os botões que controlam um painel de acordeão
+            const accordionButtons = document.querySelectorAll('button[aria-controls]');
+
+            // Adiciona um ouvinte de evento de clique para CADA botão encontrado
+            accordionButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Encontra o painel que este botão específico controla
+                    const panelId = button.getAttribute('aria-controls');
+                    const panel = document.getElementById(panelId);
+
+                    // Verifica o estado atual (se está expandido ou não)
+                    const isExpanded = button.getAttribute('aria-expanded') === 'true';
+
+                    // Inverte o estado
+                    if (isExpanded) {
+                        // Se está aberto, fecha
+                        button.setAttribute('aria-expanded', 'false');
+                        panel.hidden = true;
+                    } else {
+                        // Se está fechado, abre
+                        button.setAttribute('aria-expanded', 'true');
+                        panel.hidden = false;
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>
