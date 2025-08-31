@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            background: black;
+            color: white;
+            text-align: center;
+        }
+
+        #circulo {
+            height: 146px;
+            width: 146px;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            border-radius: 50%;
+            top: 2px;
+            font-family: sans-serif;
+            text-transform: uppercase;
+        }
+
+        #grad1 {
+            height: 150px;
+            width: 150px;
+            background-color: red;
+            /* For browsers that do not support gradients */
+            background-image: conic-gradient(red 0deg, yellow 90deg, green 180deg, blue 270deg, red 350deg);
+            border-radius: 50%;
+            animation: girar 1s linear infinite;
+            position: absolute;
+        }
+
+        .botao {
+            display: flex;
+            justify-content: center;
+        }
+
+
+        @keyframes girar {
+            from {
+                /* ou 0% */
+                transform: rotate(0deg);
+            }
+
+            to {
+                /* ou 100% */
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Animação com CSS</h1>
+    <div class="botao">
+        <div id="grad1"></div>
+        <div id="circulo">comprar</div>
+    </div>
+</body>
+
+</html>
