@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 .wrapper {
   display: grid;
   /*height: 100vh; /* Ocupa a altura total da tela */
@@ -38,16 +42,47 @@ footer {
 }
 
 @media (max-width: 768px) {
-    .wrapper {
-        grid-template-columns: 1f;
-        grid-template-rows: auto;
+  .wrapper {
+    /* Mudamos para uma única coluna */
+    grid-template-columns: 1fr;
+    /* Deixamos as linhas com altura automática */
+    grid-template-rows: auto;
 
-        grid-template-areas:
-            "header"
-            "nav"    
-            "main"   
-            "aside"
-            "footer";
-    }
-} 
+    /* Apenas redesenhamos o mapa, empilhando as áreas! */
+    grid-template-areas:
+      "header"
+      "nav"
+      "main"
+      "aside"
+      "footer";
+  }
+}
+
+/* --- Estilos Base (Mobile) --- */
+/* Sem Media Query! */
+.container {
+  display: flex;
+  flex-direction: column; /* Empilhado por padrão */
+  gap: 1rem;
+}
+
+.content, .sidebar {
+  padding: 1rem;
+  background-color: #f2f2f2;
+}
+
+/* --- Estilos para Telas Maiores (Tablet e acima) --- */
+/* Adicionamos complexidade! */
+@media (min-width: 768px) {
+  .container {
+    flex-direction: row; /* Lado a lado */
+  }
+  .content {
+    flex: 3; /* Ocupa 3/4 do espaço */
+  }
+  .sidebar {
+    flex: 1; /* Ocupa 1/4 do espaço */
+  }
+}
+
 
