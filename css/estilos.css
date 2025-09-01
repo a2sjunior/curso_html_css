@@ -1,0 +1,187 @@
+body {
+  font-family: 'Lato', sans-serif;
+}
+
+
+a {
+  text-decoration: none; /* Remove sublinhado padrão em todos os estados */
+  color: #3498db;
+  transition: color 0.3s ease-in-out; /* Transição suave para a mudança de cor */
+}
+
+a:hover {
+  color: #2980b9; /* Cor mais escura no hover */
+  /* Outras opções de feedback no hover: */
+  /* border-bottom: 1px solid #2980b9; */ /* Adiciona um sublinhado sutil */
+  /* opacity: 0.8; */ /* Diminui a opacidade */
+}
+
+p {
+  /* Versão longa */
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
+  font-family: "Georgia", serif;
+}  
+
+.titulo-principal {
+  text-shadow: 3px 3px 4px rgba(0, 0, 0, 0.5);
+}
+
+.titulo-retro {
+  text-shadow: 3px 3px 100px #ffc107;
+}
+
+p{
+  /* Versão curta (shorthand) */
+  font: italic 400 1rem/1.5 "Georgia", serif;
+}
+
+.card {
+  border: 1px solid #ddd;
+}
+
+.alerta {
+  border: 2px dashed orange;
+}
+
+.botao {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #ddd;
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%; 
+  object-fit: cover; 
+}
+
+
+.caixa-com-margin {
+  background-color: lightcoral;
+  margin-top: 30px;
+  margin-right: 15px;
+  margin-bottom: 10px;
+  margin-left: 8px;
+}
+
+.caixa-com-margin {
+  background-color: lightcoral;
+  margin: 30px 15px 10px 8px;
+}
+
+.caixa-com-padding {
+  background-color: lightblue;
+  padding-top: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+}
+
+.caixa-com-padding {
+  background-color: lightblue;
+  padding: 20px;
+}
+
+.caixa-fixa {
+  width: 500px;
+  height: 250px;
+  background-color: lightblue;
+}
+
+.container {
+  /* O container nunca passará de 960px, 
+  mas pode ser menor em telas pequenas */
+  max-width: 960px; 
+  margin: 0 auto; /* Um truque para 
+  centralizar o container */
+}
+
+img {
+  /* A imagem nunca será mais larga que 
+  seu container, evitando que vaze */
+  max-width: 100%;
+  height: auto; /* Mantém a proporção da 
+  imagem ao redimensionar a largura */
+}
+
+.caixa-azul {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 150px;
+  height: 150px;
+  background: blue;
+  z-index: 1; /* Fica atrás da vermelha */
+}
+
+.caixa-vermelha {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  width: 150px;
+  height: 150px;
+  background: red;
+  z-index: 2; /* Fica na frente da azul */
+}
+
+.nav-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  background-color: #222;
+  padding: 20px;
+  gap: 20px;
+}
+
+.container { 
+    display: flex; 
+    height: 10vh;
+}
+.item { 
+    flex: 1; /* Todos os itens crescem igualmente */
+    background-color: #2980b9;} 
+.item-destaque { flex: 3; /* Este item cresce 3x mais que os outros */
+    background-color: coral;} 
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.item-que-ocupa-duas-colunas {
+  /* Comece na linha 1 e termine na linha 3 */
+  grid-column-start: 1;
+  grid-column-end: 3; /* Ocupará as colunas 1 e 2 */
+}
+
+.item-que-ocupa-duas-colunas {
+  /* O código abaixo é o mesmo do exemplo anterior */
+  grid-column: 1 / 3;
+}
+
+.item-que-ocupa-duas-colunas {
+  /* Comece na linha 1 e ocupe (span) 2 colunas */
+  grid-column: 1 / span 2;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.container {
+  grid-template-areas:
+    "cabecalho cabecalho cabecalho"
+    "menu      principal lateral"
+    "rodape    rodape    rodape";
+}
+
+
+

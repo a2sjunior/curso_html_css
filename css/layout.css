@@ -1,0 +1,53 @@
+.wrapper {
+  display: grid;
+  /*height: 100vh; /* Ocupa a altura total da tela */
+  gap: 10px;
+  width: min(920px, 100%);
+  margin: 0 auto;
+
+  /* Definimos 3 colunas: a 1ª e a 3ª flexíveis, a do meio maior */
+  grid-template-columns: 1fr 2.5fr 1fr;
+
+  /* Definimos 3 linhas: cabeçalho e rodapé fixos, miolo flexível */
+  grid-template-rows: 80px 1fr 60px;
+  
+  /* Nosso mapa visual do layout */
+  grid-template-areas:
+    "header header header"
+    "nav    main   aside"
+    "footer footer footer";
+}
+
+header { 
+    grid-area: header; 
+    background-color: #ccc;
+    align-self: center;
+    text-align: center;
+}
+nav    { 
+    grid-area: nav; 
+    background-color: #eee;
+}
+main   { grid-area: main; }
+aside  { grid-area: aside; }
+footer { 
+    grid-area: footer; 
+    background-color: #ccc;
+    align-self: center;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .wrapper {
+        grid-template-columns: 1f;
+        grid-template-rows: auto;
+
+        grid-template-areas:
+            "header"
+            "nav"    
+            "main"   
+            "aside"
+            "footer";
+    }
+} 
+
